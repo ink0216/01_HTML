@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_입력 관련 태그</title>
+</head>
+<body>
+
+<!-- 중요한 것 위주로 암기하기!!     -->
+<h1>form 태그/ input 태그</h1>
+<h3>form 태그(여러가지를 작성하고, 제출 누르면 구글폼처럼 내용이 전달됨)</h3>
+<pre>
+-입력 양식을 만들기 위해 작성하는 판(영역)
+- 내부에 작성된 입력 값을 지정된 곳으로 제출하는 역할을 함
+
+[속성]
+중요1) action 속성 : 제출될 곳을 지정하는 속성(보통 여기에 주소(인터넷 주소 등)를 작성)
+중요2) method 속성(방식) : 설정된 곳으로 데이터를 전달하는 방식(제출을 이메일로 할지 우편으로 할지 방식을 정하는 것)
+3) name 속성 : 이름 지정하는 속성 (JS(javascript에서 사용))
+4) target 속성 : 제출된 페이지를 현재 탭에서 열 것인지 새 탭으로 열 것인지 
+</pre>
+
+<hr>
+<h3>input(입력) 태그</h3>
+<pre>
+
+-웹 문서에서 사용자(클라이언트)가 입력할 수 있는 
+양식을 제공하는 태그
+-많은 type이 존재하고, input의 변형 형태(역할은 같지만 다른 종류의 태그들)도 다수 존재함
+*input 태그에는 name 속성이 필수로 작성되어야 한다(꼭은 아니지만 80-90% 이상 작성하는 경우가 많음) !
+
+</pre>
+<hr>
+
+<h3>form, input 테스트</h3>
+<form action="result.html"> <!-- result.html로 제출한다 -->
+
+이름 : <input type="text" name="user-name">
+<button>제출</button>
+
+
+</form>
+
+<hr>
+
+
+<h3>text(글자, 숫자 등 입력하는 것) 관련 input 태그</h3>
+
+<pre>
+type="text" : 한 줄 텍스트 입력 상자(모든 input의 기본값)
+
+type= "password" : 비밀번호 입력 상자(모자이크 처리 되는 것)
+<br><br>
+type="url" 
+type="search"
+type="tel"
+type="email" <!-- 이 네개는 잘 쓰이지 않음 -->
+->이 네개는 모양은 text와 동일, 용도를 구분하기 위한 것이고 잘 사용하지 않음
+
+</pre>
+<form action="result.html" >
+아이디 : <input type="text" name="input-id">
+<br>
+비밀번호 : <input type="password" name="input-pw">
+
+<button>로그인(제출)</button>
+
+</form>
+
+<hr>
+
+<h3>숫자 관련 input 태그(숫자만 입력 가능)</h3>
+<pre>
+    type="number" : 숫자만 입력 가능한 입력 상자를 만듦
+    type="range" : 슬라이드바를 이용해서 숫자를 지정할 수 있게 만듦
+         (단독 사용되지 않고, JS와 혼용 사용)
+
+    [속성]
+    1. min : 최소값
+    2. max : 최대값
+    3. step : 숫자가 증가/감소하는 간격(단계)를 조정
+    4. value: 초기값(기본값)을 지정
+</pre> 
+
+<form action="result.html"> <!-- result.html로 보낼거야 -->
+점수 입력 : <input type="number" min="0" 
+        max="100" 
+        step="10" 
+        value="30"
+        name="score1"> <!-- 화살표 클릭: 스핀 -->
+<br>
+
+점수 입력 : <input type="range" min="0"
+            max="200"
+            step="5"
+            value="100"
+            name="score2">   <!-- 숫자가 안보여서 JS와 혼용함 -->
+<button>제출</button>
+        
+
+</form>
+
+<hr>
+
+<h3>날짜/ 시간 관련 input 태그</h3>
+<form action="result.html">
+<ul>
+    <li><input type="date"></li>
+    <li><input type="month"></li>
+    <li><input type="week"></li>
+    <li><input type="time"></li>
+    <li><input type="datetime-local"></li>
+</ul>ㅣ
+<button>제출</button>
+</form>
+
+
+
+
+
+
+    
+</body>
+</html>

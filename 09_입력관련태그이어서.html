@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_입력관련태그이어서</title>
+</head>
+<body>
+    
+<hr>
+<h3>radio, checkbox</h3>
+
+<pre>
+    - 여러 연관된 값을 묶어서 선택하는 경우에 사용함(이 중의 하나 또는 원하는 모든 것)
+
+    -radio (button) : 여러 값 중 하나만 선택하는 경우 사용
+     예시: 성별,  
+    
+    -check box : 여러 값 중 원하는 모든 것을 선택하는 경우
+    예시: 상세 검색, 관심 분야 선택, 취미 선택 (여러 가지 중 원하는 것 여러개 선택)
+    -둘은 용도는 다른데 사용 방법은 거의 동일
+    -<strong style="color:red;">
+        연관된 radio, checkbox는 같은 name 속성 값을 가져야 한다 ! 
+    </strong>
+</pre>
+
+<h4>radio 확인</h4>
+
+<br><!-- name="team"안 쓰면 둘 다 선택 가능하게 프로그래밍 됨 -->
+<br><!-- name="team"써야, name이 같아야 둘 중 하나만 선택 가능하게 됨, 같은 이름인 것 중 하나만 선택 가능하도록 됨-->
+<input type="radio" name="team">A팀 <br>
+<input type="radio" name="team">B팀 <br>
+<input type="radio" name="team">C팀 <br>
+<input type="radio" name="team">D팀
+
+<hr>
+
+<h4>checkbox 확인</h4>
+<!-- checkbox의 name속성은 제출되는 곳에 name이 같은 값들을 그 name으로 묶어서 전달하기 위함 -->
+<!-- name 같은 것끼리 묶여서 넘어감 ex)color[RED,ORANGE,GREEN] (선택한 결과) -->
+<input type="checkbox" name="color">RED
+<br>
+<input type="checkbox" name="color">ORANGE
+<br>
+<input type="checkbox" name="color">YELLOW
+<br>
+<input type="checkbox" name="color">GREEN
+<br> 
+
+<hr>
+<h3>radio, checkbox 추가 속성</h3>
+<pre> <!-- name 말고 다른 것도 적을 수 있다 -->
+-value(입력관련태그(값 변경 가능한 경우)-초기값으로 기능) : 선택되었을 때 제출될 값을 작성하는 속성(radio, checkbox의 경우) 
+
+-checked : 체크가 되어있게 하는 속성(기본적으로 선택돼야하는 것들을 적어 놓음) : 시작태그에 checked 쓰면 됨
+</pre>
+
+<form action="result.html">
+<input type="radio" name="team" value="A팀 선택함" >A팀 <br>
+<input type="radio" name="team" value="B팀 선택함" checked>B팀
+<button>제출</button>
+<!-- value="A팀 선택함"value="B팀 선택함" 안쓰면 on이라고 위에 나옴 뭘 선택했는지 모름 -->
+<hr>
+
+<input type="checkbox" name="color" value="RED" checked>RED <br>
+<input type="checkbox" name="color" value="BLUE" checked>BLUE <br>
+<input type="checkbox" name="color" value="GREEN">GREEN <br>
+<button>제출</button>
+
+
+</form>
+<hr>
+<h3>label 태그들</h3>
+
+<pre>
+    -입력 관련 태그(input, select, textarea 등)의 제목이나 설명을 나타내는 태그임
+    -사용법 1 : label 태그 내부에 입력 관련 태그를 하나 작성하면 
+                label 태그를 클릭해도 입력 관련 태그가 선택된다. 
+<!-- 작은 클릭 박스 클릭하기 어려울 때 옆의 글씨를 클릭해도 클릭이 되도록 하는 것임(input의 범위를 확장시킴) -->
+    -사용법 2 : 입력 관련 태그의 id 속성값을 
+                label 태그의 for 속성 값에 똑같이 적으면 연결된다. 
+</pre>
+클릭해보세요! <input type="checkbox"> <br>
+<label>클릭해보세요! <input type="checkbox"></label>
+<hr>
+<input type="checkbox" id="test"> <!-- id는 중복되지 않는 것 사용해야 함 -->
+<br>
+<img src="images/dogs/dog2.jpg" width="400px" height="300px" >
+<br>
+<label for="test">여기를 클릭하면 위에 체크박스가 선택됩니다.</label> 
+<!-- 체크박스와 글씨가 멀리 있을 때 글씨를 눌러도 체크박스로 이동하거나, 체크박스에 체크할 수 있도록 for가 기능함 -->
+<hr>
+<h3>select / option 태그 (둘은 세트임) </h3>
+<pre>
+    -select : 클릭하면 밑으로 메뉴가 촤르륵 내려오는 입력 태그(=드롭 다운)
+
+    -option : select 클릭 시 보여질 메뉴를 작성하는 태그 (select에서 옵션을 하나 선택하겠다)
+
+    *주의 사항 : select와 option은 
+    value가 분리된 태그로 생각하면 된다! 
+</pre>
+<input type="radio" name="team" value="A팀"> <!-- team이라는 이름으로 보낼 건데 그 중 A팀을 선택했다 -->
+<select name="menu" >   <!-- 여기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+    <option>초밥</option> 
+    <option>라면</option> 
+    <option>햄버거</option> 
+</select>
+<hr>
+<h3>textarea</h3> 
+<pre>
+    -여러 줄(row)을 입력 할 수 있는 입력 상자
+
+    [속성] 
+    -name : 제출되는 곳에서 데이터를 읽을 때(부를 때) 필요한 이름
+    -rows : textarea의 행 크기를 지정하는 속성(rows="5"->5행 만큼 생김, 세로로 쓸 수 있는 글자 수가 5개)
+    -cols : textarea의 열 크기를 지정하는 속성(cols="50"->50열 만큼 생김, 가로로 쓸 수 있는 글자 수가 50개)
+    -style : "resize:none" : 크기 변경을 불가하게 만드는 것
+
+    *textarea는 pre 태그처럼 그 안에 작성된 모양 그대로 출력하는 성질을 지님 아래에서 이름, 나이, 주소 앞에 빈 칸 생김( 쓴 그대로)
+    공백 없었으면 좋겠으면 왼쪽으로 당겨 쓰면 됨
+</pre>
+<textarea name="intro" rows="5" cols="30"></textarea> <!-- 그래도 오른쪽 아래로 크기 조절 가능 --> <br>
+<textarea name="intro" rows="5" cols="30" style="resize:none"><!-- 이러면 크기 고정됨 -->
+    이름:
+    나이:
+    주소:
+</textarea> 
+<hr>
+<h3>기타 입력 관련 태그</h3>
+<pre>
+    - type="color" : 색을 선택할 수 있는 입력 상자를 출력함
+
+    - type="file" : 파일을 선택할 수 있는 탐색기를 실행시킴
+
+    - type="hidden"(숨겨져있는) : 화면에 보이지 않게 만드는 것
+      (body 태그 안에 쓰면 화면에 다 나오는데, 주민번호 등 화면에 안보였으면 하는, 숨기고픈 것이 있을 때 사용함) 
+
+</pre>
+<hr>
+<input type="color" > <!-- 누르면 색 선택 가능 16진수 색상코드-->
+<br>
+<input type="file">
+<br>
+<input type="hidden" value="숨겨진 값">
+<hr>
+<h3>fieldset / legend</h3>
+<pre>
+    field(넓은 영역) set(설정) : 테두리를 만들어서 영역을 설정하는 태그
+                                주로 form 태그 내부에서 입력 요소의 그룹을 지어 구분할 때 사용함
+                                회원가입 시 필수사항과 선택영역을 구분하는 테두리 만드는 경우 등 
+    legend(제목) : fieldset 테두리에 이름을 지정하는 태그 (선 중간에 나옴 집합처럼)
+
+</pre>
+<hr>
+<h3>button 태그</h3>
+<pre>
+    -버튼을 만드는 태그
+
+    -type 속성 값에 따라서 동작이 달라짐 (세 종류 존재)
+
+    type="submit" : 제출 버튼 만들 때 사용, 
+                    이게 button 태그의 기본값임->type 속성을 작성하지 않으면 자동으로 submit으로 지정됨
+    
+    type="reset" : 버튼이 포함된 form태그의 모든 입력값을 초기화는 버튼(이걸 누르면 모든 값들이 다 지워짐)
+    
+    type="button" : 아무런 기능이 없는 버튼(버튼 태그의 버튼 타입)
+                    ->JS에서 기능을 추가하는 용도의 버튼(JS에서 여러 기능 만들어 이 버튼 눌렀을 때 그 기능 실행하도록 할 수 있음)
+
+</pre>
+
+<form action="#"> <!-- 주소에 #을 작성하면 다른 페이지로 전달하지 않겠다는 뜻(임시값) -->
+    <fieldset>
+        <legend>필수 입력 사항</legend>
+        <label>
+            아이디 : <input type="text" name="input-id">
+        </label>
+        <label>
+            비밀번호 : <input type="password" name="input-pw">
+        </label>
+
+    </fieldset>
+    <fieldset>
+        <legend>선택 입력 사항</legend>
+        <label>
+        주소 : <input type="text" name="address" size="100"> <!-- 100자 쓸 수 있게 길어짐 -->
+        <!-- size : type="text"의 길이에만 사용 가능(number일 때에는 사용 불가) -->
+
+        </label>
+
+
+    </fieldset>
+
+<button>제출1</button> <!-- 아무것도 안 쓰면 submit으로 됨 -->
+<button type="submit">제출2</button> <!-- 아무것도 안 쓰면 submit으로 됨, 제출 1,2가 동일할 것임 -->
+
+<button type="reset">초기화</button>
+
+<button type="button">그냥 버튼</button>
+</form>
+<!-- script 내부는 JS쓰는 공간 -->
+<script> 
+    document.querySelector("[type=button]").addEventListener(  "click", () => {
+        alert("그냥 버튼이 클릭 되었습니다");
+    }) 
+
+</script>
+<!-- 그냥 버튼에 아무 기능 없었는데 JS로 화면에 팝업창 띄우는 기능 만듦 -->
+
+</body>
+</html>
